@@ -1,0 +1,17 @@
+{
+  "name": "@gramophone/server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "author": "Aleks Rutins",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/server": "^4.5.0",
+    "graphql": "^16.6.0"
+  }
+}

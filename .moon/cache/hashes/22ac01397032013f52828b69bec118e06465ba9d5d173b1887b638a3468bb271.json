@@ -1,0 +1,22 @@
+{
+  "aliases": {
+    "@gramophone/server": "server"
+  },
+  "configs": {
+    ".moon/cache/hashes/6e1c132e8763bb05cbdf415962a8e6ace873f1352ce91f526b76dff2f2a7299b.json": "c246c618a9401eb37a65de5e75912b103906a5f1",
+    ".moon/cache/hashes/8a80f954d97e4089c03a35678641e4deb00699a70ca83f5acfe58ddba7e4e49e.json": "ec93351f6e5059d3f049689b9b4002ebee4a15a6",
+    ".moon/cache/hashes/a3d55218856d4e4ad0135fe06e383e4dee4431f83f3391bf4c11999067b8764d.json": "91a601c6d13e973af2483f2213c193fd39a92469",
+    ".moon/cache/states/depsNode.json": "4b89e70a9b77701aff7c6777d59ae55778fefac2",
+    ".moon/cache/states/projectGraph.json": "41cfc727eab9823e87cc54b72b995f8839cbfcca",
+    ".moon/cache/states/projects.json": "ce95917ad32037b2082736dc527724d81b5c9928",
+    ".moon/cache/states/toolNode-18.0.0.json": "af850c6779d9d3683ce947835e20ebea0695ca55",
+    ".moon/cache/states/versionCheck.json": "ac7cea4aae1dd7e467479b8b0f0985f6892d50d2",
+    ".moon/tasks.yml": "521574903418cd2ea5c440c86249ff63f059449a",
+    ".moon/toolchain.yml": "6469944b22706711258bf18d04f5de5d8e67aed0",
+    ".moon/workspace.yml": "8dd66caec4af32b635b732f25786de6ba8081e76"
+  },
+  "sources": {
+    "server": "apps/server"
+  },
+  "version": "0.25.4"
+}

@@ -1,0 +1,26 @@
+{
+  "aliases": {
+    "@gramophone/server": "server"
+  },
+  "configs": {
+    ".moon/cache/hashes/22ac01397032013f52828b69bec118e06465ba9d5d173b1887b638a3468bb271.json": "f299f68bc68ddbbab943d40c7110caef0b5652cc",
+    ".moon/cache/hashes/59b66f2c3550491adc9a65ce9aee98dc19f06450b133ef83862bc5212679fa75.json": "bb9f8fa7b8071cebf267cdac4e4d3dec5170fafe",
+    ".moon/cache/hashes/6e1c132e8763bb05cbdf415962a8e6ace873f1352ce91f526b76dff2f2a7299b.json": "c246c618a9401eb37a65de5e75912b103906a5f1",
+    ".moon/cache/hashes/8a80f954d97e4089c03a35678641e4deb00699a70ca83f5acfe58ddba7e4e49e.json": "ec93351f6e5059d3f049689b9b4002ebee4a15a6",
+    ".moon/cache/hashes/a3d55218856d4e4ad0135fe06e383e4dee4431f83f3391bf4c11999067b8764d.json": "91a601c6d13e973af2483f2213c193fd39a92469",
+    ".moon/cache/states/depsNode.json": "21314534cf28ba69d35bc5474727085249882ce4",
+    ".moon/cache/states/projectGraph.json": "41cfc727eab9823e87cc54b72b995f8839cbfcca",
+    ".moon/cache/states/projects.json": "f47a7fce2c7b972ed52afe58e9111f3255880c62",
+    ".moon/cache/states/server/runfile.json": "619dfa6550538776a4354bc3b1c419c58738ea9d",
+    ".moon/cache/states/toolNode-18.0.0.json": "b629bc28e329376dbe9a2f72939418eca986c853",
+    ".moon/cache/states/versionCheck.json": "ac7cea4aae1dd7e467479b8b0f0985f6892d50d2",
+    ".moon/cache/types/apps/server/index.js": "06140f21cddeced59f3d8df60aa510069b7f9d6e",
+    ".moon/tasks.yml": "521574903418cd2ea5c440c86249ff63f059449a",
+    ".moon/toolchain.yml": "c777cde91d81c8b088898841ca280b6ddebce572",
+    ".moon/workspace.yml": "8dd66caec4af32b635b732f25786de6ba8081e76"
+  },
+  "sources": {
+    "server": "apps/server"
+  },
+  "version": "0.25.4"
+}
