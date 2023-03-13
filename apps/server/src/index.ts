@@ -49,7 +49,7 @@ const server = new ApolloServer({
 
 const { url } = await startStandaloneServer(server, {
     listen: {
-        port: parseInt(process.env.PORT ?? "3000")
+        port: parseInt(process.env.PORT ?? "3001")
     }
 });
 

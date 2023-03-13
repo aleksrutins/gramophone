@@ -1,9 +1,14 @@
 {
-    "extends": "tsconfig-moon/tsconfig.json",
-    "include": ["src/**/*"],
-    "references": [
-        {
-            "path": "apps/server"
-        }
-    ]
+  "extends": "tsconfig-moon/tsconfig.json",
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "apps/client"
+    },
+    {
+      "path": "apps/server"
+    }
+  ]
 }
