@@ -1,4 +1,0 @@
-[phases.build]
-cmds = ["...", "npx moon run :build"]
-[start]
-cmd = "npx moon run :start"
