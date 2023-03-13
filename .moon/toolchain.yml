@@ -15,10 +15,10 @@ node:
 
   # The package manager to use when managing dependencies.
   # Accepts "npm" (default), "pnpm", or "yarn".
-  packageManager: 'pnpm'
+  packageManager: 'npm'
 
   # The version of the package manager (above) to use.
-  pnpm: {}
+  npm: {}
 
   # Add `node.version` as a constraint in the root `package.json` `engines`.
   addEnginesConstraint: true
