@@ -35,7 +35,8 @@ export default `#graphql
     type Query {
         users: [User]
         tutorials: [Tutorial]
-        user(name: String!): User
+        me: User
+        user(username: String!): User
         tutorialsBy(username: String!): [Tutorial]
         tutorial(id: Int!): Tutorial
     }
