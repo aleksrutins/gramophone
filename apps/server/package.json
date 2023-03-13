@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-esm ./src/index.ts",
+    "dev": "nodemon --esm ./src/index.ts",
     "start": "node ./dist/index.js"
   },
   "author": "Aleks Rutins",
