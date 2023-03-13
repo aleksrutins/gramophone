@@ -1,0 +1,11 @@
+[
+  {
+    "aliases": {},
+    "dependencies": {
+      "@moonrepo/cli": "^0.25.4",
+      "tsconfig-moon": "^1.2.1",
+      "typescript": "^4.9.5"
+    },
+    "name": "gramophone"
+  }
+]
