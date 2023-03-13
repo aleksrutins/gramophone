@@ -13,7 +13,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@moonrepo/cli": "^0.25.4",
+    "@moonrepo/cli": "^0.26.0",
     "nodemon": "^2.0.21",
     "ts-node": "^10.9.1",
     "tsconfig-moon": "^1.2.1",
