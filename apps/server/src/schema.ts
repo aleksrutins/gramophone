@@ -1,3 +1,7 @@
+import { join } from "node:path"
+import { makeSchema } from "nexus"
+import * as types from "./graphql/index.js"
+
 export default `#graphql
     "The programming language of a tutorial."
     enum ProgrammingLanguage {
@@ -63,3 +67,11 @@ export default `#graphql
         removeSection(id: Int!): Section
     }
 `
+
+export const schema = makeSchema({
+    types,
+    outputs: {
+        typegen: join(new URL(import.meta.url).pathname, '..', 'nexus-typegen.ts'),
+        schema: join(new URL(import.meta.url).pathname, '..', 'schema.graphql')
+    }
+})
