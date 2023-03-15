@@ -1,0 +1,39 @@
+---
+import Layout from './Layout.astro'
+import Tag from '../components/Tag.astro'
+import authorInfo, { Author } from '../util/authors'
+import { getGravatarURL } from '../util/gravatar'
+
+export interface Props {
+    frontmatter: {
+        title: string,
+        language: string,
+        authors: string[],
+        tags: string[]
+    }
+}
+
+const { title, language, authors, tags } = Astro.props.frontmatter
+
+const authorsWithInfo = authors.map(authorInfo).filter(a => a) as Author[]
+
+const authorLinks = authorsWithInfo.map(author => `
+<a class="block rounded-full overflow-hidden w-5 h-5" href="${author.link}">
+    <img src="${getGravatarURL(author.email)}">
+</a>
+`).join()
+---
+
+<Layout {title}>
+    <div class="border-b border-b-gray-700 p-4 m-4">
+        <h1 class="text-6xl font-extrabold p-0 pb-2 m-0">{title}</h1>
+        <div class="pb-2">
+            <Tag color="0, 128, 0" text={language}/>
+            {tags.map(tag => <Tag text={tag}/>)}
+        </div>
+        <div><Fragment set:html={authorLinks}/></div>
+    </div>
+    <div class="prose">
+        <slot></slot>
+    </div>
+</Layout>

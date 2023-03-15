@@ -1,0 +1,36 @@
+---
+layout: ../../../../layouts/Tutorial.astro
+title: Basic OpMode
+language: kotlin
+authors: [aleksrutins]
+tags: [first, ftc, robotics]
+---
+
+import CodeChallenge from '../../../../components/CodeChallenge.tsx';
+
+Let's write a basic OpMode!
+
+<CodeChallenge client:visible text="Write an opmode that runs the robot forward at half power.">
+```kotlin
+package org.firstinspires.ftc.teamcode
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp
+
+@TeleOp(name = "Hallway Run")
+class HallwayRun : LinearOpMode() {
+    override fun runOpMode() {
+        RobotConfig.initHardwareMaps(hardwareMap, gamepad1, gamepad2)
+        DriveBase.setRunMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER)
+        DriveBase.setTravelDirection(DriveBase.TravelDirection.base)
+
+        waitForStart()
+        if(opModeIsActive()) {
+            while(opModeIsActive()) {
+                DriveBase.go(0.5) // this power level doesn't really matter
+            }
+        }
+    }
+}
+```
+</CodeChallenge>

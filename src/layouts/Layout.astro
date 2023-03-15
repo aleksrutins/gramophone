@@ -1,4 +1,6 @@
 ---
+import NavLink from '../components/NavLink.astro';
+
 export interface Props {
 	title: string;
 }
@@ -16,20 +18,46 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<header class="flex flex-row justify-between items-center p-2 bg-white/30 backdrop-blur border-b sticky top-0">
+			<div class="flex flex-row items-center">
+				<img class="block" src="/favicon.svg" height="50" width="50">
+				<h1 class="font-extrabold text-xl">gramophone</h1>
+				<div class="flex flex-row items-center p-3">
+					<NavLink url="/">Home</NavLink>
+					<NavLink url="/tutorials">Tutorials</NavLink>
+				</div>
+			</div>
+		</header>
+		<div class="mx-auto px-3 my-6 max-w-6xl">
+			<slot />
+		</div>
 	</body>
 </html>
 <style is:global>
 	:root {
 		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 40%, white 60%);
 	}
 	html {
 		font-family: system-ui, sans-serif;
 		background-color: #F6F6F6;
 	}
+	body {
+		background-image: radial-gradient(rgba(var(--accent), 0.2), #da62c422 40%, transparent 60%);
+		background-size: 100vw;
+		background-repeat: no-repeat;
+		background-attachment: local;
+		min-height: 100vh;
+	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
 	}
 </style>

@@ -1,0 +1,12 @@
+---
+import TutorialPreview from "../components/TutorialPreview.astro";
+import Layout from "../layouts/Layout.astro";
+const tutorials = (await Astro.glob('./tutorials/**/*.{md,mdx}')).sort((a, b) => a.frontmatter.title - b.frontmatter.title);
+---
+
+<Layout title="Tutorials">
+    <h1 class="text-2xl font-extrabold">Tutorials</h1>
+    <div class="flex flex-row flex-wrap justify-start">
+    {tutorials.map(tutorial => <TutorialPreview tutorial={tutorial as any}/>)}
+    </div>
+</Layout>

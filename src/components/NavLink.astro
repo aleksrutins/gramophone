@@ -1,0 +1,20 @@
+---
+export interface Props {
+    url: string
+}
+
+const { url } = Astro.props
+
+const classes = [
+    'transition',
+    'p-2',
+    'rounded',
+    'hover:bg-gray-200',
+]
+
+if(Astro.url.pathname == url) {
+    classes.push('text-gradient')
+}
+---
+
+<a class:list={classes} href={url}><slot></slot></a>

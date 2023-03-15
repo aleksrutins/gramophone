@@ -1,0 +1,20 @@
+---
+export interface Props {
+    text: string,
+    color?: string
+}
+const {text} = Astro.props;
+const color = Astro.props.color ?? "var(--accent)";
+---
+
+<span>{text}</span>
+
+<style define:vars={{ color }}>
+    span {
+        color: rgb(var(--color));
+        padding: 3px;
+        margin: 3px;
+        border-radius: 3px;
+        background-color: rgba(var(--color), 0.2);
+    }
+</style>
