@@ -8,7 +8,7 @@ export type Props = {
 export default function CodeChallenge({ text, children }: Props) {
     const [expanded, setExpanded] = useState(false);
     return (
-        <div className="flex flex-col rounded shadow shadow-green-400 bg-green-100 border border-green-500 p-3 text-green-900">
+        <div className="flex flex-col rounded-md shadow shadow-green-400 bg-green-100 border border-green-500 p-3 text-green-900">
             <div className="flex flex-row items-center">
                 {/* heroicon: light-bulb */}
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
