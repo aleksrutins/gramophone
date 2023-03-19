@@ -10,7 +10,106 @@ import CodeChallenge from '../../../../components/CodeChallenge.tsx';
 
 Let's write a basic OpMode!
 
-<CodeChallenge client:visible text="Write an opmode that runs the robot forward at half power.">
+## The Basics
+
+In order to write an OpMode, you need to create an OpMode class. OpMode classes generally extend from the `com.qualcomm.robotcore.eventloop.opmode.LinearOpMode` class, and implement the `runOpMode()` method.
+
+Inside the `runOpMode` method, most OpModes have three stages:
+
+1. **Initialization**
+
+   This is the code at the very start of the `runOpMode` method. This code is called when the driver presses the "Init" button on the Driver Station, and is generally the place to initialize hardware and do other pre-game tasks.
+
+2. **Pre-Loop**
+
+   After the Initialization phase, your OpMode should call the `waitForStart` method to wait until the driver presses "Start".
+   After that, it should use an `if(opModeIsActive())` block to make sure that no emergency stop has been requested.
+   At the beginning of that `if` block is where you should put code intended to run once. This can, in some cases &mdash; autonomous OpModes being the most common scenario &mdash; be your entire OpMode.
+
+3. **Loop**
+
+   If your OpMode is a TeleOp that responds to user input, below the pre-loop code should be a `while(opModeIsActive())` loop, which repeats until the OpMode is stopped. Here is where you should respond to user input, check sensors, and, for a TeleOp, run the main code of your OpMode.
+
+A basic scaffold for a TeleOp with all three stages:
+```kotlin
+package org.firstinspires.ftc.teamcode
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp
+
+@TeleOp(name = "Op Mode Name")
+class OpModeName : LinearOpMode() {
+    override fun runOpMode() {
+        // Put initialization here.
+        waitForStart()
+        if(opModeIsActive()) {
+            // Put pre-loop code here.
+            while(opModeIsActive()) {
+                // Put loop code here.
+            }
+        }
+    }
+}
+```
+
+And for an autonomous, with only initialization and pre-loop:
+```kotlin
+package org.firstinspires.ftc.teamcode
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp
+
+@TeleOp(name = "Op Mode Name")
+class OpModeName : LinearOpMode() {
+    override fun runOpMode() {
+        // Put initialization here.
+        waitForStart()
+        if(opModeIsActive()) {
+            // Put the OpMode routine here.
+        }
+    }
+}
+```
+
+## Subassembly Abstractions
+In our (the [Manchester Machine Makers](https://manchestermachinemakers.org)') codebase, we use [subassembly abstractions](subassembly-abstractions) for our hardware.
+Since our hardware requirements change based on the season, we'll explore the `DriveBase` abstraction here.
+
+The `DriveBase` abstraction has [way too many methods](https://github.com/ManchesterMachineMakers/RobotController/blob/season/next/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/subassemblies/DriveBase.kt), but there are only a few that we'll cover here: `setRunMode`, `setTravelDirection`, and most importantly, `go`.
+
+`setRunMode` and `setTravelDirection` should be relatively familiar to those having used Blocks, as they are very similar to their `DcMotor` counterparts; however, there are a couple of significant differences:
+1. They affect all of the motors on the robot.
+2. `setTravelDirection`, instead of using a `DcMotorEx.Direction`, uses a `DriveBase.TravelDirection`.
+
+`DriveBase.TravelDirection` is relatively simple; it has a number of possible directions, but they should generally be self-explanatory:
+```kotlin
+enum class TravelDirection {
+    base, forward, reverse, pivotLeft, pivotRight, strafeLeft, strafeLeftForward, strafeLeftBackward, strafeRight, strafeRightForward, strafeRightBackward, 
+    @Deprecated("Newer drive bases do not support pitching")
+    pitch
+}
+```
+
+The only one that may require explanation is `base`: all it does is set all motors to run forward.
+
+`go` is slightly less similar to the standard library, and complicated mainly due to its egregious number of overloads. However, the only overload we'll be using here is `go(powerLevel: Float)`, which sets all motors to the specified power level.
+
+To make the robot go forward, you can initialize it by setting the run mode to `DcMotor.RunMode.RUN_WITHOUT_ENCODER` and the travel direction to `base`. Then, you can run the drive base forward by setting the power level to a number between 0 and 1. To stop it, just set the power level to zero.
+
+### Initializing Subassembly Abstractions
+However, you can't just slap some `DriveBase` calls in your code and call it good. First, you have to initialize the drive base by giving it the required hardware.
+
+This is done automatically through the `RobotConfig.initHardwareMaps` method, which will automatically initialize all detected subassemblies.
+To call it, just put this line in your initialization stage:
+```kotlin
+RobotConfig.initHardwareMaps(hardwareMap, gamepad1, gamepad2)
+```
+
+Then, you should be ready to use the various subassemblies in your code.
+
+Now, try to put all this together by completing the challenge below. Once you think you have an answer, you can check it by clicking "Show Answer".
+
+<CodeChallenge client:visible text="Write an opmode using the DriveBase abstraction that runs the robot forward at half power.">
 ```kotlin
 package org.firstinspires.ftc.teamcode
 
